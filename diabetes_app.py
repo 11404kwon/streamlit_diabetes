@@ -61,7 +61,7 @@ h1 {
 
 # 모델 & 스케일러 불러오기
 model = joblib.load("diabetes_model.pkl")
-scaler = joblib.load("scaler_scaler.pkl")
+scaler = joblib.load("diabetes_scaler.pkl")
 
 # 제목
 st.markdown("<h1>🩺 당뇨병 예측 시스템 💙</h1>", unsafe_allow_html=True)
