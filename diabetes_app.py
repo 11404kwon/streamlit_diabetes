@@ -96,49 +96,6 @@ if st.button("🔍 당뇨 예측하기"):
         ]
     )
 
-    # 파생 변수 생성
-    input_data['인슐린_포도당_비율'] = input_data['인슐린'] / (input_data['포도당(혈당)'] + 1)
-
-    input_data['신체위험도'] = (
-        input_data['체질량지수'] + input_data['혈압']
-    )
-
-    input_data['비만혈당지수'] = (
-        input_data['체질량지수'] * input_data['포도당(혈당)']
-    )
-
-    input_data['임신_나이_비율'] = (
-        input_data['임신횟수'] / (input_data['나이'] + 1)
-    )
-
-    input_data['건강취약'] = (
-        input_data['나이'] * input_data['체질량지수']
-    ) / 100
-
-    input_data['고령'] = (
-        input_data['나이'] >= 50
-    ).astype(int)
-
-    # 컬럼 순서 맞추기
-    input_data = input_data[
-        [
-            '임신횟수',
-            '포도당(혈당)',
-            '혈압',
-            '피부 두께',
-            '인슐린',
-            '체질량지수',
-            '당뇨내력가중치',
-            '나이',
-            '인슐린_포도당_비율',
-            '신체위험도',
-            '비만혈당지수',
-            '임신_나이_비율',
-            '건강취약',
-            '고령'
-        ]
-    ]
-
     # 스케일링
     input_scaled = scaler.transform(input_data)
 
